@@ -25,7 +25,7 @@ export class Service{
                 status,
                 userId,
             }
-        )
+        );
     }catch(error){
       console.log("appwrite service ",error)
     }
@@ -64,7 +64,7 @@ export class Service{
 
    async getPost(slug){
     try {
-        return await this.databases.getDocment(
+        return await this.databases.getDocument(
             conf.appwriteDatabaseId,
             conf.appwriteCollectionId,
             slug
@@ -92,11 +92,11 @@ export class Service{
     }
 
     // file upload service / method
-    async uploadFile(file){
+    async uploadFile(file,fileId=ID.unique()){
         try {
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
-                ID.unique(),
+                fileId,
                 file
             )
         } catch (error) {
@@ -122,7 +122,7 @@ export class Service{
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId
-        )
+        );
     }
 }
 

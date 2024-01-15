@@ -42,7 +42,7 @@ export class AuthService {
         try {
            return await this.account.get();
         } catch (error) {
-            console.log("appwrite service",error)
+            console.log("appwrite service",error);
         }
         return null;
     }

@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth'
 import {login,logout} from "./store/authSlice"
 // import { Footer } from './components'
-import { Header,Footer } from './components/index'
+import { Header,Footer } from './components'
 import { Outlet } from 'react-router-dom'
 function App() {
   
    const [loading,setLoading] = useState(true) 
-   const dispatch = useDispatch
+   const dispatch = useDispatch()
 // application load ask to use effect youare logged in or not
    useEffect(()=>{
     authService.getCurrentUser()
@@ -28,7 +28,7 @@ function App() {
       <div className='w-full block'>
         <Header/>
         <main>
-       todo   {/* <Outlet/> */}
+       todo  <Outlet/> 
         </main>
         <Footer/>
       </div>

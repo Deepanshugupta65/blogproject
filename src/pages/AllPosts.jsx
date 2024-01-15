@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {Container , PostCard } from '../components'
 import appwriteService from "../appwrite/config"
 function AllPosts() {
-    const [posts , setPosts] = useEffect([])
+    const [posts , setPosts] = useState([])
     useEffect(()=>{},[])
     appwriteService.getPost([]).then((posts)=> {
         if(posts){
